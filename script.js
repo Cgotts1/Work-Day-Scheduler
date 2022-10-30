@@ -2,134 +2,42 @@ var displayCurrentTime = document.querySelector('#currentDay')
 var hourlySchedule = document.querySelector('.container')
 
 
-var nine = document.querySelector("#nine")
-var ten = document.querySelector("#ten")
-var eleven = document.querySelector("#eleven")
-var twelve = document.querySelector("#twelve")
-var one = document.querySelector("#one")
-var two = document.querySelector("#two")
-var three = document.querySelector("#three")
-var four = document.querySelector("#four")
-var five = document.querySelector("#five")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const storageTextArea = document.querySelector("#textarea");
-// const button = document.querySelector("saveBtn")
-
-
-// const saveToLocalStorage = ()=>{
-//     localStorage.setItem('textarea')
-// }
-
-// button.addEventListener("click", saveToLocalStorage);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var currentHour = [[nine, '09'], [nine, '10'], [nine, '11'], [nine, '12'], [nine, '13'], [nine, '14'], [nine, '15'], [nine, '16'], [nine, '17']];
-
-
-
-function pastPresentFuture(){
-    var nine = "";
-    
+// querySelectors for all the time columns
+let nine = document.querySelector(".nine")
+let ten = document.querySelector(".ten")
+let eleven = document.querySelector(".eleven")
+let twelve = document.querySelector(".twelve")
+let one = document.querySelector(".one")
+let two = document.querySelector(".two")
+let three = document.querySelector(".three")
+let four = document.querySelector(".four")
+let five = document.querySelector(".five")
+
+
+// Code for changing the color timeblocks. Assisted by Anthony Farris 
+
+var hourArray = [[nine, 09], [ten, 10], [eleven, 11], [twelve, 12], [one, 13], [two, 14], [three, 15],
+[four, 16], [five, 17]];
+
+var currentHourFunc = function () {
+    currentHour = moment().format('HH');
+    for (i = 0; i < hourArray.length; i++) {
+        if (currentHour == hourArray[i][1]) {
+            hourArray[i][0].classList.add('present');           
+        }
+        else if (currentHour > hourArray[i][1]) {
+            hourArray[i][0].classList.add('past');
+        }
+        else if (currentHour < hourArray[i][1]) {
+            hourArray[i][0].classList.add('future');
+        }
     }
+};
+
+currentHourFunc()
 
 
-
-
+//Sets the date at the top of the page upon loading of the page
 setInterval(function (){
 
 var time = moment().format("dddd MMM Do, YYYY")
@@ -138,52 +46,20 @@ displayCurrentTime.textContent = time             // this worked because it wasn
 }, 1000);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Local Storage
+// Code for each textarea and corresponding button
 
 //Hour 9
-
 const button = document.querySelector(".sb9");
 const textarea = document.querySelector(".t9");
 textarea.innerHTML = localStorage.getItem("value")
 button.addEventListener("click", display9);
 
 function display9(){
-
   localStorage.setItem('value', textarea.value);
-//   textarea.innerHTML = localStorage.getItem("value")
 }
 
 
 //Hour 10
-
-
 const buttonTen = document.querySelector(".sb10");
 const textareaTen = document.querySelector(".t10");
 textareaTen.innerHTML = localStorage.getItem("value10")
