@@ -1,5 +1,4 @@
-var displayCurrentTime = document.querySelector("#currentDay");
-var hourlySchedule = document.querySelector(".container");
+var displayCurrentTime = document.querySelector("#currentDay");  // querySelector for displaying time at top of page
 
 // querySelectors for all the time columns, prevents button from being highlighted around
 let nine = document.querySelector(".nine");
@@ -26,7 +25,7 @@ var hourArray = [
   [five, 17],
 ];
 
-var currentHourFunc = function () {
+var currentHourFunction = function () {
   currentHour = moment().format("HH");
   for (i = 0; i < hourArray.length; i++) {
     if (currentHour == hourArray[i][1]) {
@@ -39,7 +38,7 @@ var currentHourFunc = function () {
   }
 };
 
-currentHourFunc();
+currentHourFunction();
 
 //Sets the date at the top of the page upon loading of the page
 setInterval(function () {
