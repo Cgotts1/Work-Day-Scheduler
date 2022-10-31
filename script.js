@@ -1,7 +1,7 @@
 var displayCurrentTime = document.querySelector("#currentDay");
 var hourlySchedule = document.querySelector(".container");
 
-// querySelectors for all the time columns
+// querySelectors for all the time columns, prevents button from being highlighted around
 let nine = document.querySelector(".nine");
 let ten = document.querySelector(".ten");
 let eleven = document.querySelector(".eleven");
