@@ -10,6 +10,7 @@ Link to application: https://cgotts1.github.io/Work-Day-Scheduler/
 ## Credits
 
 UCSD Peer: Anthony Farris
+
 https://www.youtube.com/watch?v=fYTTUBa-lPc
 
 ## License
